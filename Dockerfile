@@ -1,5 +1,5 @@
 FROM node:latest
-MANTAINER seba.rios@gmail.com
+MAINTAINER @smtx
 
 WORKDIR /home/api
 ADD . /home/api
