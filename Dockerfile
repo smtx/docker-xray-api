@@ -1,4 +1,5 @@
 FROM node:latest
+MANTAINER seba.rios@gmail.com
 
 WORKDIR /home/api
 ADD . /home/api
