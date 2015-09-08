@@ -1,0 +1,10 @@
+{
+  "name" : "xray-api",
+  "version" : "0.0.1",
+  "dependencies" : {
+    "express" : "4",
+    "x-ray" : "latest",
+    "body-parser": "latest",
+    "method-override": "latest"
+  }
+}
