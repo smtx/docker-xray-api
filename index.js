@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
     new Nightmare()
       .goto(req.body.url)
       .click(req.body.click)
-      .wait(500)
+      .wait()
       .evaluate(function(){
         return document;
       },function(document){
