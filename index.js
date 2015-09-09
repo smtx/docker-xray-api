@@ -14,17 +14,37 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function (req, res) {
+
   var Xray = require('x-ray');
   var x = Xray();
-  // ################
-  // OLX ARTILCE EXAMPLE
-  // { 'name': 'p.user-name', 'phone': 'p.user-phone'  }
 
   var js = JSON.parse(req.body.recipe);
-  var j = x(req.body.url, 'body',js)(function(err, obj) {
-    console.log(err);
-    res.json(obj);
-  });
+
+  if (req.body.click!==undefined){
+    var Nightmare = require('nightmare');
+    new Nightmare()
+      .goto(req.body.url)
+      .click(req.body.click)
+      .evaluate(function(){
+        return document.body;
+      },function(document){
+        var j = x(document.innerHTML, 'body',js)(function(err, obj) {
+          console.log('nightmare');
+          res.json(obj);
+        });
+      })
+      .run();
+  } else {
+    // ################
+    // OLX ARTILCE EXAMPLE
+    // { 'name': 'p.user-name', 'phone': 'p.user-phone'  }
+
+    var j = x(req.body.url, 'body',js)(function(err, obj) {
+      // console.log(err);
+      res.json(obj);
+    });
+
+  }
 })
 
 app.use(router);

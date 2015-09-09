@@ -5,6 +5,7 @@
     "express" : "4",
     "x-ray" : "latest",
     "body-parser": "latest",
-    "method-override": "latest"
+    "method-override": "latest",
+    "nightmare": "latest"
   }
 }

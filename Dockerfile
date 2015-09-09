@@ -4,6 +4,8 @@ MAINTAINER @smtx
 WORKDIR /home/api
 ADD . /home/api
 
+RUN npm install phantomjs -g
+
 RUN npm install
 
 EXPOSE 8888
