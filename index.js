@@ -25,13 +25,14 @@ router.post('/', function (req, res) {
     new Nightmare()
       .goto(req.body.url)
       .click(req.body.click)
+      .wait(1000)
       .evaluate(function(){
-        return document.body;
+        return document;
       },function(document){
-        var j = x(document.innerHTML, 'body',js)(function(err, obj) {
-          console.log('nightmare');
+        var j = x(document.all[0].outerHTML, 'body',js)(function(err, obj) {
           res.json(obj);
         });
+        //console.log(document.all[0].outerHTML);
       })
       .run();
   } else {
