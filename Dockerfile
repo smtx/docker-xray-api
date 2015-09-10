@@ -19,10 +19,8 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
     libjpeg-dev \
     libqt5webkit5-dev
 
-ENV PHANTOM_JS_TAG 2.0.0
-
 RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs && \
-  cd /tmp/phantomjs && git checkout $PHANTOM_JS_TAG && \
+  cd /tmp/phantomjs && \
   ./build.sh --confirm && mv bin/phantomjs /usr/local/bin && \
   rm -rf /tmp/phantomjs
 
