@@ -21,7 +21,8 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 
 RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs && \
   cd /tmp/phantomjs && \
-  ./build.sh --confirm && mv bin/phantomjs /usr/local/bin && \
+  git checkout 2.0 && \
+  ./build.sh --jobs 1 --confirm && mv bin/phantomjs /usr/local/bin && \
   rm -rf /tmp/phantomjs
 
 WORKDIR /home/api
