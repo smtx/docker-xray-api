@@ -1,29 +1,42 @@
 FROM node:latest
 MAINTAINER @smtx
 
-RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
-    git \
-    build-essential \
-    g++ \
-    flex \
-    bison \
-    gperf \
-    ruby \
-    perl \
-    libsqlite3-dev \
-    libfontconfig1-dev \
-    libicu-dev \
-    libfreetype6 \
-    libssl-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libqt5webkit5-dev
+# Dependencies we just need for building phantomjs
+ENV buildDependencies\
+  wget unzip python build-essential g++ flex bison gperf\
+  ruby perl libsqlite3-dev libssl-dev libpng-dev
 
-RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs && \
-  cd /tmp/phantomjs && \
-  git checkout 2.0 && \
-  ./build.sh --jobs 1 --confirm && mv bin/phantomjs /usr/local/bin && \
-  rm -rf /tmp/phantomjs
+# Dependencies we need for running phantomjs
+ENV phantomJSDependencies\
+  libicu-dev libfontconfig1-dev libjpeg-dev libfreetype6 openssl
+
+# Installing phantomjs
+RUN \
+    # Installing dependencies
+    apt-get update -yqq \
+&&  apt-get install -fyqq ${buildDependencies} ${phantomJSDependencies}\
+    # Downloading src, unzipping & removing zip
+&&  mkdir phantomjs \
+&&  cd phantomjs \
+&&  wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-source.zip \
+&&  unzip phantomjs-2.0.0-source.zip \
+&&  rm -rf /phantomjs/phantomjs-2.0.0-source.zip \
+    # Building phantom
+&&  cd phantomjs-2.0.0/ \
+&&  ./build.sh --jobs 1 --confirm --silent \
+    # Removing everything but the binary
+&&  ls -A | grep -v bin | xargs rm -rf \
+    # Symlink phantom so that we are able to run `phantomjs`
+&&  ln -s /phantomjs/phantomjs-2.0.0/bin/phantomjs /usr/local/share/phantomjs \
+&&  ln -s /phantomjs/phantomjs-2.0.0/bin/phantomjs /usr/local/bin/phantomjs \
+&&  ln -s /phantomjs/phantomjs-2.0.0/bin/phantomjs /usr/bin/phantomjs \
+    # Removing build dependencies, clean temporary files
+&&  apt-get purge -yqq ${buildDependencies} \
+&&  apt-get autoremove -yqq \
+&&  apt-get clean \
+&&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    # Checking if phantom works
+&&  phantomjs -v
 
 WORKDIR /home/api
 ADD . /home/api
