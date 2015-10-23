@@ -42,9 +42,6 @@ router.post('/', function (req, res) {
       })
       .run();
   } else {
-    // ################
-    // OLX ARTILCE EXAMPLE
-    // { 'name': 'p.user-name', 'phone': 'p.user-phone'  }
     if (req.body.paginate!==undefined && req.body.selector!==undefined){
       if (req.body.limit!==undefined){
         var limit = req.body.limit;
@@ -53,13 +50,11 @@ router.post('/', function (req, res) {
       }
       var j = x(req.body.url, req.body.selector, [js])
                 .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
-        // console.log(err);
         res.json(obj);
       });
 
     } else {
       var j = x(req.body.url, js)(function(err, obj) {
-        // console.log(err);
         res.json(obj);
       });
 
