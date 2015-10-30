@@ -54,10 +54,22 @@ router.post('/', function (req, res) {
       });
 
     } else {
-      var j = x(req.body.url, js)(function(err, obj) {
-        res.json(obj);
-      });
-
+      if (req.body.url!==undefined) {
+        var j = x(req.body.url, js)(function(err, obj) {
+          res.json(obj);
+        });
+      } else {
+        var aUrls = req.body.urls;
+        var resultados = [];
+        aUrls.forEach(function(url){
+          var j = x(url, js)(function(err, obj) {
+            resultados.push({'url':url,'res':obj});
+            if (resultados.length >= aUrls.length){
+              res.json(resultados);
+            }
+          });
+        });
+      }
     }
 
   }
