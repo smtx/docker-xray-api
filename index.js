@@ -59,7 +59,7 @@ router.post('/', function (req, res) {
           res.json(obj);
         });
       } else {
-        var aUrls = req.body.urls;
+        var aUrls = JSON.parse(req.body.urls);
         var resultados = [];
         aUrls.forEach(function(url){
           var j = x(url, js)(function(err, obj) {
@@ -74,6 +74,7 @@ router.post('/', function (req, res) {
 
   }
 })
+
 
 app.use(router);
 
