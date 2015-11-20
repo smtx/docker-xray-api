@@ -78,6 +78,8 @@ router.post('/', function (req, res) {
 
 app.use(router);
 
-app.listen(8888, function() {
+server = app.listen(8888, function() {
   console.log("Node server running on http://localhost:8888");
 });
+
+server.timeout = 600000;
