@@ -1,3 +1,9 @@
+if (!Array.prototype.last){
+    Array.prototype.last = function(){
+        return this[this.length - 1];
+    };
+};
+
 var express = require("express"),
     app = express(),
     bodyParser  = require("body-parser"),
@@ -48,9 +54,26 @@ router.post('/', function (req, res) {
       } else {
         var limit = 3;
       }
+      var next = false;
+      var data = false;
+      var i = x(req.body.url, 'body', [req.body.paginate])
+                .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
+                  if ( parseInt(obj.length) < parseInt(req.body.paginate) ){
+                    next = false;
+                  } else {
+                    next = obj.last();
+                  }
+                  if ( data ){
+                    res.json({data:data,next:obj.length});
+                  }
+      });
       var j = x(req.body.url, req.body.selector, [js])
                 .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
-        res.json(obj);
+                  if ( next ){
+                    res.json({data:obj,next:next});
+                  } else {
+                    data = obj;
+                  }
       });
 
     } else {
