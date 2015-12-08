@@ -58,13 +58,13 @@ router.post('/', function (req, res) {
       var data = false;
       var i = x(req.body.url, 'body', [req.body.paginate])
                 .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
-                  if ( parseInt(obj.length) < parseInt(req.body.paginate) ){
+                  if ( parseInt(obj.length) < parseInt(limit) ){
                     next = false;
                   } else {
                     next = obj.last();
                   }
                   if ( data ){
-                    res.json({data:data,next:obj.length});
+                    res.json({data:data,next:next});
                   }
       });
       var j = x(req.body.url, req.body.selector, [js])
