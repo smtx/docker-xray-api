@@ -58,6 +58,7 @@ router.post('/', function (req, res) {
       var data = false;
       var i = x(req.body.url, 'body', [req.body.paginate])
                 .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
+                  if (err) return err;
                   if ( parseInt(obj.length) < parseInt(limit) ){
                     next = false;
                   } else {
