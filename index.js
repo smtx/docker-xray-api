@@ -80,13 +80,37 @@ router.post('/', function (req, res) {
     } else {
       if (req.body.url!==undefined) {
         var j = x(req.body.url, js)(function(err, obj) {
-          res.json(obj);
+            if (typeof obj == 'string'){
+              var data = obj.replace(/["|.]/g,'');
+              if (req.body.regex){
+                if (arrMatches = data.match(req.body.regex)){
+                    data = arrMatches[1] || arrMatches[0];
+                } else {
+                    data = 0;
+                }
+              }              
+              obj = data
+              //callback(err,{data:data,id:selRecipe.id});
+            } 
+            res.json(obj);
         });
       } else {
         var aUrls = JSON.parse(req.body.urls);
         var resultados = [];
         aUrls.forEach(function(url){
           var j = x(url, js)(function(err, obj) {
+            if (typeof obj == 'string'){
+              var data = obj.replace(/["|.]/g,'');
+              if (req.body.regex){
+                if (arrMatches = data.match(req.body.regex)){
+                    data = arrMatches[1] || arrMatches[0];
+                } else {
+                    data = 0;
+                }
+              }              
+              obj = data
+              //callback(err,{data:data,id:selRecipe.id});
+            } 
             resultados.push({'url':url,'res':obj});
             if (resultados.length >= aUrls.length){
               res.json(resultados);
