@@ -30,7 +30,7 @@ router.post('/', function (req, res) {
   var Xray = require('x-ray');
   var x = Xray();
 
-  var js = JSON.parse(req.body.recipe);
+  var js = req.body.recipe;
 
   if (req.body.click!==undefined){
     var Nightmare = require('nightmare');
