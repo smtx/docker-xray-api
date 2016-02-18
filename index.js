@@ -63,14 +63,18 @@ router.post('/', function (req, res) {
 
     } else {
       if (req.body.url!==undefined) {
+        // Normalize url
+        if (req.body.url.substring(0,2)=='//') req.body.url = 'http:'+req.body.url;
         var j = x(req.body.url, js)(function(err, obj) {
           if (req.body.regex){
             if (typeof obj == 'string'){
               obj = setRegex(obj,req.body.regex);
             } else {
-              Object.keys(obj).forEach(function(k){
-                  obj[k] = setRegex(obj[k],req.body.regex[k]);
-              });
+              if (obj){
+                Object.keys(obj).forEach(function(k){
+                    obj[k] = setRegex(obj[k],req.body.regex[k]);
+                });                  
+              }
             }              
           }
           res.json(obj);
