@@ -32,22 +32,6 @@ router.post('/', function (req, res) {
 
   var js = req.body.recipe;
 
-  if (req.body.click!==undefined){
-    var Nightmare = require('nightmare');
-    new Nightmare()
-      .goto(req.body.url)
-      .click(req.body.click)
-      .wait()
-      .evaluate(function(){
-        return document;
-      },function(document){
-        var j = x(document.all[0].outerHTML, 'body',js)(function(err, obj) {
-          res.json(obj);
-        });
-        // console.log(document.all[0].outerHTML);
-      })
-      .run();
-  } else {
     if (req.body.paginate!==undefined && req.body.selector!==undefined){
       if (req.body.limit!==undefined){
         var limit = req.body.limit;
@@ -80,19 +64,16 @@ router.post('/', function (req, res) {
     } else {
       if (req.body.url!==undefined) {
         var j = x(req.body.url, js)(function(err, obj) {
+          if (req.body.regex){
             if (typeof obj == 'string'){
-              var data = obj.replace(/["|.]/g,'');
-              if (req.body.regex){
-                if (arrMatches = data.match(req.body.regex)){
-                    data = arrMatches[1] || arrMatches[0];
-                } else {
-                    data = 0;
-                }
-              }              
-              obj = data
-              //callback(err,{data:data,id:selRecipe.id});
-            } 
-            res.json(obj);
+              obj = setRegex(obj,req.body.regex);
+            } else {
+              Object.keys(obj).forEach(function(k){
+                  obj[k] = setRegex(obj[k],req.body.regex[k]);
+              });
+            }              
+          }
+          res.json(obj);
         });
       } else {
         var aUrls = JSON.parse(req.body.urls);
@@ -119,8 +100,6 @@ router.post('/', function (req, res) {
         });
       }
     }
-
-  }
 })
 
 
@@ -131,3 +110,14 @@ server = app.listen(8888, function() {
 });
 
 server.timeout = 600000;
+
+function setRegex(obj,regex){
+    if (!regex) return obj;
+    var data = obj.replace(/["|.]/g,'');
+    if (arrMatches = data.match(regex)){
+        data = arrMatches[1] || arrMatches[0];
+    } else {
+        data = 0;
+    }
+    return data;
+}
