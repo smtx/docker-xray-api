@@ -4,7 +4,7 @@
   "dependencies" : {
     "express" : "4",
     "weak" : "latest",
-    "x-ray" : "latest",
+    "smtx-ray" : "latest",
     "body-parser": "latest",
     "method-override": "latest",
     "nightmare": "latest"

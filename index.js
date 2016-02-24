@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
 
 router.post('/', function (req, res) {
 
-  var Xray = require('x-ray');
+  var Xray = require('smtx-ray');
   var x = Xray();
 
   var js = req.body.recipe;
