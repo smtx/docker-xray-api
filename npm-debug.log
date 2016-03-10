@@ -1,26 +1,844 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/Cellar/node/5.1.0/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'start' ]
-2 info using npm@3.3.12
-3 info using node@v5.1.0
-4 verbose stack Error: missing script: start
-4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:147:19)
-4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:57:5
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
-4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:309:45)
-4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:343:3)
-4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:76:16
-4 verbose stack     at tryToString (fs.js:414:3)
-4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:401:12)
-5 verbose cwd /Users/matrix/Proyectos/docker-xray-api
-6 error Darwin 15.3.0
-7 error argv "/usr/local/Cellar/node/5.1.0/bin/node" "/usr/local/bin/npm" "start"
-8 error node v5.1.0
-9 error npm  v3.3.12
-10 error missing script: start
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.2
+4 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\package.json
+5 warn package.json xray-api@0.0.1 No repository field.
+6 warn package.json xray-api@0.0.1 No license field.
+7 verbose install where, deps [ 'c:\\Users\\Cohen\\Desktop\\nightmare\\docker-xray-api',
+7 verbose install   [ 'express',
+7 verbose install     'weak',
+7 verbose install     'smtx-ray',
+7 verbose install     'body-parser',
+7 verbose install     'method-override',
+7 verbose install     'nightmare' ] ]
+8 verbose install where, peers [ 'c:\\Users\\Cohen\\Desktop\\nightmare\\docker-xray-api', [] ]
+9 verbose installManyTop reading for lifecycle c:\Users\Cohen\Desktop\nightmare\docker-xray-api\package.json
+10 info preinstall xray-api@0.0.1
+11 verbose installManyTop reading scoped package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\body-parser\package.json
+12 verbose installManyTop reading scoped package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\express\package.json
+13 verbose installManyTop reading scoped package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\method-override\package.json
+14 verbose installManyTop reading scoped package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\nightmare\package.json
+15 verbose installManyTop reading scoped package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\smtx-ray\package.json
+16 info package.json smtx-ray@2.0.4 No license field.
+17 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\package.json
+18 verbose targetResolver reading package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\body-parser\package.json
+19 verbose targetResolver reading package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\express\package.json
+20 verbose targetResolver reading package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\method-override\package.json
+21 verbose targetResolver reading package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\nightmare\package.json
+22 verbose targetResolver reading package data from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\smtx-ray\package.json
+23 silly cache add args [ 'nightmare@latest', null ]
+24 verbose cache add spec nightmare@latest
+25 verbose already installed skipping express@4 c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+26 silly cache add args [ 'weak@latest', null ]
+27 verbose cache add spec weak@latest
+28 silly cache add args [ 'smtx-ray@latest', null ]
+29 verbose cache add spec smtx-ray@latest
+30 silly cache add args [ 'body-parser@latest', null ]
+31 verbose cache add spec body-parser@latest
+32 silly cache add parsed spec Result {
+32 silly cache add   raw: 'nightmare@latest',
+32 silly cache add   scope: null,
+32 silly cache add   name: 'nightmare',
+32 silly cache add   rawSpec: 'latest',
+32 silly cache add   spec: 'latest',
+32 silly cache add   type: 'tag' }
+33 silly addNamed nightmare@latest
+34 verbose addNamed "latest" is being treated as a dist-tag for nightmare
+35 info addNameTag [ 'nightmare', 'latest' ]
+36 silly mapToRegistry name nightmare
+37 silly mapToRegistry using default registry
+38 silly mapToRegistry registry https://registry.npmjs.org/
+39 silly mapToRegistry uri https://registry.npmjs.org/nightmare
+40 verbose addNameTag registry:https://registry.npmjs.org/nightmare not in flight; fetching
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'weak@latest',
+41 silly cache add   scope: null,
+41 silly cache add   name: 'weak',
+41 silly cache add   rawSpec: 'latest',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed weak@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for weak
+44 info addNameTag [ 'weak', 'latest' ]
+45 silly mapToRegistry name weak
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry uri https://registry.npmjs.org/weak
+49 verbose addNameTag registry:https://registry.npmjs.org/weak not in flight; fetching
+50 silly cache add parsed spec Result {
+50 silly cache add   raw: 'smtx-ray@latest',
+50 silly cache add   scope: null,
+50 silly cache add   name: 'smtx-ray',
+50 silly cache add   rawSpec: 'latest',
+50 silly cache add   spec: 'latest',
+50 silly cache add   type: 'tag' }
+51 silly addNamed smtx-ray@latest
+52 verbose addNamed "latest" is being treated as a dist-tag for smtx-ray
+53 info addNameTag [ 'smtx-ray', 'latest' ]
+54 silly mapToRegistry name smtx-ray
+55 silly mapToRegistry using default registry
+56 silly mapToRegistry registry https://registry.npmjs.org/
+57 silly mapToRegistry uri https://registry.npmjs.org/smtx-ray
+58 verbose addNameTag registry:https://registry.npmjs.org/smtx-ray not in flight; fetching
+59 silly cache add args [ 'method-override@latest', null ]
+60 verbose cache add spec method-override@latest
+61 silly cache add parsed spec Result {
+61 silly cache add   raw: 'body-parser@latest',
+61 silly cache add   scope: null,
+61 silly cache add   name: 'body-parser',
+61 silly cache add   rawSpec: 'latest',
+61 silly cache add   spec: 'latest',
+61 silly cache add   type: 'tag' }
+62 silly addNamed body-parser@latest
+63 verbose addNamed "latest" is being treated as a dist-tag for body-parser
+64 info addNameTag [ 'body-parser', 'latest' ]
+65 silly mapToRegistry name body-parser
+66 silly mapToRegistry using default registry
+67 silly mapToRegistry registry https://registry.npmjs.org/
+68 silly mapToRegistry uri https://registry.npmjs.org/body-parser
+69 verbose addNameTag registry:https://registry.npmjs.org/body-parser not in flight; fetching
+70 silly cache add parsed spec Result {
+70 silly cache add   raw: 'method-override@latest',
+70 silly cache add   scope: null,
+70 silly cache add   name: 'method-override',
+70 silly cache add   rawSpec: 'latest',
+70 silly cache add   spec: 'latest',
+70 silly cache add   type: 'tag' }
+71 silly addNamed method-override@latest
+72 verbose addNamed "latest" is being treated as a dist-tag for method-override
+73 info addNameTag [ 'method-override', 'latest' ]
+74 silly mapToRegistry name method-override
+75 silly mapToRegistry using default registry
+76 silly mapToRegistry registry https://registry.npmjs.org/
+77 silly mapToRegistry uri https://registry.npmjs.org/method-override
+78 verbose addNameTag registry:https://registry.npmjs.org/method-override not in flight; fetching
+79 verbose request uri https://registry.npmjs.org/weak
+80 verbose request no auth needed
+81 info attempt registry request try #1 at 18:41:03
+82 verbose request id 5fc164c7f911a147
+83 verbose etag "1RW8CTZDLV9BKK20Z07DQMNSX"
+84 http request GET https://registry.npmjs.org/weak
+85 verbose request uri https://registry.npmjs.org/nightmare
+86 verbose request no auth needed
+87 info attempt registry request try #1 at 18:41:03
+88 verbose etag "AD7KYSXMU8VDNJYOMH2SY2V31"
+89 http request GET https://registry.npmjs.org/nightmare
+90 verbose request uri https://registry.npmjs.org/smtx-ray
+91 verbose request no auth needed
+92 info attempt registry request try #1 at 18:41:03
+93 verbose etag "8F2Z1SK4N8TC17QRA5V3WX3HG"
+94 http request GET https://registry.npmjs.org/smtx-ray
+95 verbose request uri https://registry.npmjs.org/method-override
+96 verbose request no auth needed
+97 info attempt registry request try #1 at 18:41:03
+98 verbose etag "B5KEM8JMG2Y7LGKUWTIG8QTB9"
+99 http request GET https://registry.npmjs.org/method-override
+100 verbose request uri https://registry.npmjs.org/body-parser
+101 verbose request no auth needed
+102 info attempt registry request try #1 at 18:41:03
+103 verbose etag "8P4T96M81I85KLN229FJ0WFVJ"
+104 http request GET https://registry.npmjs.org/body-parser
+105 http 304 https://registry.npmjs.org/method-override
+106 verbose headers { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+106 verbose headers   via: '1.1 varnish',
+106 verbose headers   'cache-control': 'max-age=300',
+106 verbose headers   etag: '"B5KEM8JMG2Y7LGKUWTIG8QTB9"',
+106 verbose headers   age: '2',
+106 verbose headers   connection: 'keep-alive',
+106 verbose headers   'x-served-by': 'cache-iad2128-IAD',
+106 verbose headers   'x-cache': 'HIT',
+106 verbose headers   'x-cache-hits': '1',
+106 verbose headers   'x-timer': 'S1457646065.868541,VS0,VE0',
+106 verbose headers   vary: 'Accept' }
+107 silly get cb [ 304,
+107 silly get   { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+107 silly get     via: '1.1 varnish',
+107 silly get     'cache-control': 'max-age=300',
+107 silly get     etag: '"B5KEM8JMG2Y7LGKUWTIG8QTB9"',
+107 silly get     age: '2',
+107 silly get     connection: 'keep-alive',
+107 silly get     'x-served-by': 'cache-iad2128-IAD',
+107 silly get     'x-cache': 'HIT',
+107 silly get     'x-cache-hits': '1',
+107 silly get     'x-timer': 'S1457646065.868541,VS0,VE0',
+107 silly get     vary: 'Accept' } ]
+108 verbose etag https://registry.npmjs.org/method-override from cache
+109 verbose get saving method-override to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\method-override\.cache.json
+110 http 304 https://registry.npmjs.org/weak
+111 verbose headers { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+111 verbose headers   via: '1.1 varnish',
+111 verbose headers   'cache-control': 'max-age=300',
+111 verbose headers   etag: '"1RW8CTZDLV9BKK20Z07DQMNSX"',
+111 verbose headers   age: '250',
+111 verbose headers   connection: 'keep-alive',
+111 verbose headers   'x-served-by': 'cache-iad2148-IAD',
+111 verbose headers   'x-cache': 'HIT',
+111 verbose headers   'x-cache-hits': '1',
+111 verbose headers   'x-timer': 'S1457646065.867351,VS0,VE0',
+111 verbose headers   vary: 'Accept' }
+112 silly get cb [ 304,
+112 silly get   { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+112 silly get     via: '1.1 varnish',
+112 silly get     'cache-control': 'max-age=300',
+112 silly get     etag: '"1RW8CTZDLV9BKK20Z07DQMNSX"',
+112 silly get     age: '250',
+112 silly get     connection: 'keep-alive',
+112 silly get     'x-served-by': 'cache-iad2148-IAD',
+112 silly get     'x-cache': 'HIT',
+112 silly get     'x-cache-hits': '1',
+112 silly get     'x-timer': 'S1457646065.867351,VS0,VE0',
+112 silly get     vary: 'Accept' } ]
+113 verbose etag https://registry.npmjs.org/weak from cache
+114 verbose get saving weak to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\weak\.cache.json
+115 http 304 https://registry.npmjs.org/smtx-ray
+116 verbose headers { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+116 verbose headers   via: '1.1 varnish',
+116 verbose headers   'cache-control': 'max-age=300',
+116 verbose headers   etag: '"8F2Z1SK4N8TC17QRA5V3WX3HG"',
+116 verbose headers   age: '0',
+116 verbose headers   connection: 'keep-alive',
+116 verbose headers   'x-served-by': 'cache-iad2128-IAD',
+116 verbose headers   'x-cache': 'MISS',
+116 verbose headers   'x-cache-hits': '0',
+116 verbose headers   'x-timer': 'S1457646065.854481,VS0,VE23',
+116 verbose headers   vary: 'Accept' }
+117 silly get cb [ 304,
+117 silly get   { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+117 silly get     via: '1.1 varnish',
+117 silly get     'cache-control': 'max-age=300',
+117 silly get     etag: '"8F2Z1SK4N8TC17QRA5V3WX3HG"',
+117 silly get     age: '0',
+117 silly get     connection: 'keep-alive',
+117 silly get     'x-served-by': 'cache-iad2128-IAD',
+117 silly get     'x-cache': 'MISS',
+117 silly get     'x-cache-hits': '0',
+117 silly get     'x-timer': 'S1457646065.854481,VS0,VE23',
+117 silly get     vary: 'Accept' } ]
+118 verbose etag https://registry.npmjs.org/smtx-ray from cache
+119 verbose get saving smtx-ray to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\smtx-ray\.cache.json
+120 silly addNameTag next cb for method-override with tag latest
+121 silly addNamed method-override@2.3.5
+122 verbose addNamed "2.3.5" is a plain semver version for method-override
+123 silly addNameTag next cb for weak with tag latest
+124 silly addNamed weak@1.0.1
+125 verbose addNamed "1.0.1" is a plain semver version for weak
+126 silly addNameTag next cb for smtx-ray with tag latest
+127 silly addNamed smtx-ray@2.0.4
+128 verbose addNamed "2.0.4" is a plain semver version for smtx-ray
+129 http 304 https://registry.npmjs.org/nightmare
+130 verbose headers { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+130 verbose headers   via: '1.1 varnish',
+130 verbose headers   'cache-control': 'max-age=300',
+130 verbose headers   etag: '"AD7KYSXMU8VDNJYOMH2SY2V31"',
+130 verbose headers   age: '282',
+130 verbose headers   connection: 'keep-alive',
+130 verbose headers   'x-served-by': 'cache-iad2140-IAD',
+130 verbose headers   'x-cache': 'HIT',
+130 verbose headers   'x-cache-hits': '1',
+130 verbose headers   'x-timer': 'S1457646065.882789,VS0,VE0',
+130 verbose headers   vary: 'Accept' }
+131 silly get cb [ 304,
+131 silly get   { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+131 silly get     via: '1.1 varnish',
+131 silly get     'cache-control': 'max-age=300',
+131 silly get     etag: '"AD7KYSXMU8VDNJYOMH2SY2V31"',
+131 silly get     age: '282',
+131 silly get     connection: 'keep-alive',
+131 silly get     'x-served-by': 'cache-iad2140-IAD',
+131 silly get     'x-cache': 'HIT',
+131 silly get     'x-cache-hits': '1',
+131 silly get     'x-timer': 'S1457646065.882789,VS0,VE0',
+131 silly get     vary: 'Accept' } ]
+132 verbose etag https://registry.npmjs.org/nightmare from cache
+133 verbose get saving nightmare to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\nightmare\.cache.json
+134 http 304 https://registry.npmjs.org/body-parser
+135 verbose headers { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+135 verbose headers   via: '1.1 varnish',
+135 verbose headers   'cache-control': 'max-age=300',
+135 verbose headers   etag: '"8P4T96M81I85KLN229FJ0WFVJ"',
+135 verbose headers   age: '165',
+135 verbose headers   connection: 'keep-alive',
+135 verbose headers   'x-served-by': 'cache-iad2127-IAD',
+135 verbose headers   'x-cache': 'HIT',
+135 verbose headers   'x-cache-hits': '4',
+135 verbose headers   'x-timer': 'S1457646065.889337,VS0,VE0',
+135 verbose headers   vary: 'Accept' }
+136 silly get cb [ 304,
+136 silly get   { date: 'Thu, 10 Mar 2016 21:41:05 GMT',
+136 silly get     via: '1.1 varnish',
+136 silly get     'cache-control': 'max-age=300',
+136 silly get     etag: '"8P4T96M81I85KLN229FJ0WFVJ"',
+136 silly get     age: '165',
+136 silly get     connection: 'keep-alive',
+136 silly get     'x-served-by': 'cache-iad2127-IAD',
+136 silly get     'x-cache': 'HIT',
+136 silly get     'x-cache-hits': '4',
+136 silly get     'x-timer': 'S1457646065.889337,VS0,VE0',
+136 silly get     vary: 'Accept' } ]
+137 verbose etag https://registry.npmjs.org/body-parser from cache
+138 verbose get saving body-parser to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\body-parser\.cache.json
+139 silly cache afterAdd method-override@2.3.5
+140 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\method-override\2.3.5\package\package.json not in flight; writing
+141 silly cache afterAdd weak@1.0.1
+142 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\weak\1.0.1\package\package.json not in flight; writing
+143 silly cache afterAdd smtx-ray@2.0.4
+144 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\smtx-ray\2.0.4\package\package.json not in flight; writing
+145 silly addNameTag next cb for nightmare with tag latest
+146 silly addNamed nightmare@2.2.0
+147 verbose addNamed "2.2.0" is a plain semver version for nightmare
+148 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\method-override\2.3.5\package\package.json written
+149 info already installed method-override@2.3.5
+150 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\weak\1.0.1\package\package.json written
+151 silly addNameTag next cb for body-parser with tag latest
+152 silly addNamed body-parser@1.15.0
+153 verbose addNamed "1.15.0" is a plain semver version for body-parser
+154 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\smtx-ray\2.0.4\package\package.json written
+155 info already installed smtx-ray@2.0.4
+156 silly cache afterAdd nightmare@2.2.0
+157 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\nightmare\2.2.0\package\package.json not in flight; writing
+158 silly cache afterAdd body-parser@1.15.0
+159 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\body-parser\1.15.0\package\package.json not in flight; writing
+160 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\nightmare\2.2.0\package\package.json written
+161 info already installed nightmare@2.2.0
+162 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\body-parser\1.15.0\package\package.json written
+163 info already installed body-parser@1.15.0
+164 silly install resolved [ { author: { name: 'Ben Noordhuis', email: 'info@bnoordhuis.nl' },
+164 silly install resolved     contributors: [ [Object] ],
+164 silly install resolved     name: 'weak',
+164 silly install resolved     license: 'MIT',
+164 silly install resolved     description: 'Make weak references to JavaScript Objects.',
+164 silly install resolved     keywords:
+164 silly install resolved      [ 'weak',
+164 silly install resolved        'reference',
+164 silly install resolved        'js',
+164 silly install resolved        'javascript',
+164 silly install resolved        'object',
+164 silly install resolved        'function',
+164 silly install resolved        'callback' ],
+164 silly install resolved     version: '1.0.1',
+164 silly install resolved     repository:
+164 silly install resolved      { type: 'git',
+164 silly install resolved        url: 'git://github.com/TooTallNate/node-weak.git' },
+164 silly install resolved     main: 'lib/weak.js',
+164 silly install resolved     scripts:
+164 silly install resolved      { test: 'mocha -gc --reporter spec',
+164 silly install resolved        install: 'node-gyp rebuild' },
+164 silly install resolved     dependencies: { bindings: '^1.2.1', nan: '^2.0.5' },
+164 silly install resolved     devDependencies: { mocha: '~2.1.0' },
+164 silly install resolved     gypfile: true,
+164 silly install resolved     gitHead: '1c3b0376dab966782e5d1fcf06f9fcb1309cb2c0',
+164 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-weak/issues' },
+164 silly install resolved     homepage: 'https://github.com/TooTallNate/node-weak#readme',
+164 silly install resolved     _id: 'weak@1.0.1',
+164 silly install resolved     _shasum: 'ab99aab30706959aa0200cb8cf545bb9cb33b99e',
+164 silly install resolved     _from: 'weak@latest',
+164 silly install resolved     _npmVersion: '3.3.12',
+164 silly install resolved     _nodeVersion: '5.3.0',
+164 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+164 silly install resolved     maintainers: [ [Object], [Object] ],
+164 silly install resolved     dist:
+164 silly install resolved      { shasum: 'ab99aab30706959aa0200cb8cf545bb9cb33b99e',
+164 silly install resolved        tarball: 'http://registry.npmjs.org/weak/-/weak-1.0.1.tgz' },
+164 silly install resolved     directories: {},
+164 silly install resolved     _resolved: 'https://registry.npmjs.org/weak/-/weak-1.0.1.tgz',
+164 silly install resolved     readme: 'ERROR: No README data found!' } ]
+165 info install weak@1.0.1 into c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+166 info installOne weak@1.0.1
+167 verbose installOne of weak to c:\Users\Cohen\Desktop\nightmare\docker-xray-api not in flight; installing
+168 verbose lock using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\weak-6400020d7f34ad3c.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+169 silly install write writing weak 1.0.1 to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+170 verbose unbuild node_modules\weak
+171 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak is being purged from base c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+172 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+173 verbose tar unpack C:\Users\Cohen\AppData\Roaming\npm-cache\weak\1.0.1\package.tgz
+174 verbose tar unpacking to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+175 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak is being purged
+176 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+177 silly gunzTarPerm modes [ '777', '666' ]
+178 silly gunzTarPerm extractEntry package.json
+179 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+180 silly gunzTarPerm extractEntry .npmignore
+181 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+182 silly gunzTarPerm extractEntry README.md
+183 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+184 silly gunzTarPerm extractEntry LICENSE
+185 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+186 silly gunzTarPerm extractEntry binding.gyp
+187 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+188 silly gunzTarPerm extractEntry .travis.yml
+189 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+190 silly gunzTarPerm extractEntry appveyor.yml
+191 silly gunzTarPerm modified mode [ 'appveyor.yml', 420, 438 ]
+192 silly gunzTarPerm extractEntry History.md
+193 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+194 silly gunzTarPerm extractEntry lib/weak.js
+195 silly gunzTarPerm modified mode [ 'lib/weak.js', 420, 438 ]
+196 silly gunzTarPerm extractEntry src/weakref.cc
+197 silly gunzTarPerm modified mode [ 'src/weakref.cc', 420, 438 ]
+198 silly gunzTarPerm extractEntry test/buffer.js
+199 silly gunzTarPerm modified mode [ 'test/buffer.js', 420, 438 ]
+200 silly gunzTarPerm extractEntry test/callback.js
+201 silly gunzTarPerm modified mode [ 'test/callback.js', 420, 438 ]
+202 silly gunzTarPerm extractEntry test/create.js
+203 silly gunzTarPerm modified mode [ 'test/create.js', 420, 438 ]
+204 silly gunzTarPerm extractEntry test/exports.js
+205 silly gunzTarPerm modified mode [ 'test/exports.js', 420, 438 ]
+206 silly gunzTarPerm extractEntry test/weakref.js
+207 silly gunzTarPerm modified mode [ 'test/weakref.js', 420, 438 ]
+208 verbose write writing to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\package.json
+209 info preinstall weak@1.0.1
+210 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\package.json
+211 silly prepareForInstallMany adding bindings@^1.2.1 from weak dependencies
+212 silly prepareForInstallMany adding nan@^2.0.5 from weak dependencies
+213 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\package.json
+214 silly cache add args [ 'bindings@^1.2.1', null ]
+215 verbose cache add spec bindings@^1.2.1
+216 silly cache add args [ 'nan@^2.0.5', null ]
+217 verbose cache add spec nan@^2.0.5
+218 silly cache add parsed spec Result {
+218 silly cache add   raw: 'bindings@^1.2.1',
+218 silly cache add   scope: null,
+218 silly cache add   name: 'bindings',
+218 silly cache add   rawSpec: '^1.2.1',
+218 silly cache add   spec: '>=1.2.1 <2.0.0',
+218 silly cache add   type: 'range' }
+219 silly addNamed bindings@>=1.2.1 <2.0.0
+220 verbose addNamed ">=1.2.1 <2.0.0" is a valid semver range for bindings
+221 silly addNameRange { name: 'bindings', range: '>=1.2.1 <2.0.0', hasData: false }
+222 silly mapToRegistry name bindings
+223 silly mapToRegistry using default registry
+224 silly mapToRegistry registry https://registry.npmjs.org/
+225 silly mapToRegistry uri https://registry.npmjs.org/bindings
+226 verbose addNameRange registry:https://registry.npmjs.org/bindings not in flight; fetching
+227 silly cache add parsed spec Result {
+227 silly cache add   raw: 'nan@^2.0.5',
+227 silly cache add   scope: null,
+227 silly cache add   name: 'nan',
+227 silly cache add   rawSpec: '^2.0.5',
+227 silly cache add   spec: '>=2.0.5 <3.0.0',
+227 silly cache add   type: 'range' }
+228 silly addNamed nan@>=2.0.5 <3.0.0
+229 verbose addNamed ">=2.0.5 <3.0.0" is a valid semver range for nan
+230 silly addNameRange { name: 'nan', range: '>=2.0.5 <3.0.0', hasData: false }
+231 silly mapToRegistry name nan
+232 silly mapToRegistry using default registry
+233 silly mapToRegistry registry https://registry.npmjs.org/
+234 silly mapToRegistry uri https://registry.npmjs.org/nan
+235 verbose addNameRange registry:https://registry.npmjs.org/nan not in flight; fetching
+236 verbose request uri https://registry.npmjs.org/bindings
+237 verbose request no auth needed
+238 info attempt registry request try #1 at 18:41:05
+239 verbose etag "1LLBF9OH58DLBEL4629U6032D"
+240 http request GET https://registry.npmjs.org/bindings
+241 verbose request uri https://registry.npmjs.org/nan
+242 verbose request no auth needed
+243 info attempt registry request try #1 at 18:41:05
+244 verbose etag "9GNMF0K57Y4H80QS1L4U9QND9"
+245 http request GET https://registry.npmjs.org/nan
+246 http 304 https://registry.npmjs.org/nan
+247 verbose headers { date: 'Thu, 10 Mar 2016 21:41:06 GMT',
+247 verbose headers   via: '1.1 varnish',
+247 verbose headers   'cache-control': 'max-age=300',
+247 verbose headers   etag: '"9GNMF0K57Y4H80QS1L4U9QND9"',
+247 verbose headers   age: '71',
+247 verbose headers   connection: 'keep-alive',
+247 verbose headers   'x-served-by': 'cache-iad2124-IAD',
+247 verbose headers   'x-cache': 'HIT',
+247 verbose headers   'x-cache-hits': '4',
+247 verbose headers   'x-timer': 'S1457646066.633094,VS0,VE0',
+247 verbose headers   vary: 'Accept' }
+248 silly get cb [ 304,
+248 silly get   { date: 'Thu, 10 Mar 2016 21:41:06 GMT',
+248 silly get     via: '1.1 varnish',
+248 silly get     'cache-control': 'max-age=300',
+248 silly get     etag: '"9GNMF0K57Y4H80QS1L4U9QND9"',
+248 silly get     age: '71',
+248 silly get     connection: 'keep-alive',
+248 silly get     'x-served-by': 'cache-iad2124-IAD',
+248 silly get     'x-cache': 'HIT',
+248 silly get     'x-cache-hits': '4',
+248 silly get     'x-timer': 'S1457646066.633094,VS0,VE0',
+248 silly get     vary: 'Accept' } ]
+249 verbose etag https://registry.npmjs.org/nan from cache
+250 verbose get saving nan to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\nan\.cache.json
+251 silly addNameRange number 2 { name: 'nan', range: '>=2.0.5 <3.0.0', hasData: true }
+252 silly addNameRange versions [ 'nan',
+252 silly addNameRange   [ '0.3.0-wip',
+252 silly addNameRange     '0.3.0-wip2',
+252 silly addNameRange     '0.3.0',
+252 silly addNameRange     '0.3.1',
+252 silly addNameRange     '0.3.2',
+252 silly addNameRange     '0.4.0',
+252 silly addNameRange     '0.4.1',
+252 silly addNameRange     '0.4.2',
+252 silly addNameRange     '0.4.3',
+252 silly addNameRange     '0.4.4',
+252 silly addNameRange     '0.5.0',
+252 silly addNameRange     '0.5.1',
+252 silly addNameRange     '0.5.2',
+252 silly addNameRange     '0.6.0',
+252 silly addNameRange     '0.7.0',
+252 silly addNameRange     '0.7.1',
+252 silly addNameRange     '0.8.0',
+252 silly addNameRange     '1.0.0',
+252 silly addNameRange     '1.1.0',
+252 silly addNameRange     '1.1.1',
+252 silly addNameRange     '1.1.2',
+252 silly addNameRange     '1.2.0',
+252 silly addNameRange     '1.3.0',
+252 silly addNameRange     '1.4.0',
+252 silly addNameRange     '1.4.1',
+252 silly addNameRange     '1.5.0',
+252 silly addNameRange     '1.4.2',
+252 silly addNameRange     '1.4.3',
+252 silly addNameRange     '1.5.1',
+252 silly addNameRange     '1.5.2',
+252 silly addNameRange     '1.6.0',
+252 silly addNameRange     '1.5.3',
+252 silly addNameRange     '1.6.1',
+252 silly addNameRange     '1.6.2',
+252 silly addNameRange     '1.7.0',
+252 silly addNameRange     '1.8.0',
+252 silly addNameRange     '1.8.1',
+252 silly addNameRange     '1.8.2',
+252 silly addNameRange     '1.8.3',
+252 silly addNameRange     '1.8.4',
+252 silly addNameRange     '1.9.0',
+252 silly addNameRange     '2.0.0',
+252 silly addNameRange     '2.0.1',
+252 silly addNameRange     '2.0.2',
+252 silly addNameRange     '2.0.3',
+252 silly addNameRange     '2.0.4',
+252 silly addNameRange     '2.0.5',
+252 silly addNameRange     '2.0.6',
+252 silly addNameRange     '2.0.7',
+252 silly addNameRange     '2.0.8',
+252 silly addNameRange     '2.0.9',
+252 silly addNameRange     '2.1.0',
+252 silly addNameRange     '2.2.0' ] ]
+253 silly addNamed nan@2.2.0
+254 verbose addNamed "2.2.0" is a plain semver version for nan
+255 silly cache afterAdd nan@2.2.0
+256 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\nan\2.2.0\package\package.json not in flight; writing
+257 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\nan\2.2.0\package\package.json written
+258 http 304 https://registry.npmjs.org/bindings
+259 verbose headers { date: 'Thu, 10 Mar 2016 21:41:06 GMT',
+259 verbose headers   via: '1.1 varnish',
+259 verbose headers   'cache-control': 'max-age=300',
+259 verbose headers   etag: '"1LLBF9OH58DLBEL4629U6032D"',
+259 verbose headers   age: '49',
+259 verbose headers   connection: 'keep-alive',
+259 verbose headers   'x-served-by': 'cache-iad2122-IAD',
+259 verbose headers   'x-cache': 'HIT',
+259 verbose headers   'x-cache-hits': '1',
+259 verbose headers   'x-timer': 'S1457646066.650233,VS0,VE0',
+259 verbose headers   vary: 'Accept' }
+260 silly get cb [ 304,
+260 silly get   { date: 'Thu, 10 Mar 2016 21:41:06 GMT',
+260 silly get     via: '1.1 varnish',
+260 silly get     'cache-control': 'max-age=300',
+260 silly get     etag: '"1LLBF9OH58DLBEL4629U6032D"',
+260 silly get     age: '49',
+260 silly get     connection: 'keep-alive',
+260 silly get     'x-served-by': 'cache-iad2122-IAD',
+260 silly get     'x-cache': 'HIT',
+260 silly get     'x-cache-hits': '1',
+260 silly get     'x-timer': 'S1457646066.650233,VS0,VE0',
+260 silly get     vary: 'Accept' } ]
+261 verbose etag https://registry.npmjs.org/bindings from cache
+262 verbose get saving bindings to C:\Users\Cohen\AppData\Roaming\npm-cache\registry.npmjs.org\bindings\.cache.json
+263 silly addNameRange number 2 { name: 'bindings', range: '>=1.2.1 <2.0.0', hasData: true }
+264 silly addNameRange versions [ 'bindings',
+264 silly addNameRange   [ '0.0.1',
+264 silly addNameRange     '0.1.0',
+264 silly addNameRange     '0.1.1',
+264 silly addNameRange     '0.2.0',
+264 silly addNameRange     '0.2.1',
+264 silly addNameRange     '0.2.2',
+264 silly addNameRange     '0.2.3',
+264 silly addNameRange     '0.2.4',
+264 silly addNameRange     '0.3.0',
+264 silly addNameRange     '0.4.0',
+264 silly addNameRange     '1.0.0',
+264 silly addNameRange     '1.1.0',
+264 silly addNameRange     '1.1.1',
+264 silly addNameRange     '1.2.0',
+264 silly addNameRange     '1.2.1' ] ]
+265 silly addNamed bindings@1.2.1
+266 verbose addNamed "1.2.1" is a plain semver version for bindings
+267 silly cache afterAdd bindings@1.2.1
+268 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json not in flight; writing
+269 verbose afterAdd C:\Users\Cohen\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json written
+270 silly install resolved [ { name: 'nan',
+270 silly install resolved     version: '2.2.0',
+270 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8 -> 4 compatibility',
+270 silly install resolved     main: 'include_dirs.js',
+270 silly install resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+270 silly install resolved     scripts:
+270 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+270 silly install resolved        'rebuild-tests': 'node-gyp rebuild --msvs_version=2013 --directory test',
+270 silly install resolved        docs: 'doc/.build.sh' },
+270 silly install resolved     contributors:
+270 silly install resolved      [ [Object],
+270 silly install resolved        [Object],
+270 silly install resolved        [Object],
+270 silly install resolved        [Object],
+270 silly install resolved        [Object],
+270 silly install resolved        [Object],
+270 silly install resolved        [Object] ],
+270 silly install resolved     devDependencies:
+270 silly install resolved      { bindings: '~1.2.1',
+270 silly install resolved        commander: '^2.8.1',
+270 silly install resolved        glob: '^5.0.14',
+270 silly install resolved        'node-gyp': '~3.0.1',
+270 silly install resolved        tap: '~0.7.1',
+270 silly install resolved        xtend: '~4.0.0' },
+270 silly install resolved     license: 'MIT',
+270 silly install resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+270 silly install resolved     homepage: 'https://github.com/nodejs/nan#readme',
+270 silly install resolved     _id: 'nan@2.2.0',
+270 silly install resolved     _shasum: '779c07135629503cf6a7b7e6aab33049b3c3853c',
+270 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-2.2.0.tgz',
+270 silly install resolved     _from: 'nan@>=2.0.5 <3.0.0',
+270 silly install resolved     _npmVersion: '3.3.6',
+270 silly install resolved     _nodeVersion: '5.0.0',
+270 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+270 silly install resolved     dist:
+270 silly install resolved      { shasum: '779c07135629503cf6a7b7e6aab33049b3c3853c',
+270 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-2.2.0.tgz' },
+270 silly install resolved     maintainers: [ [Object], [Object] ],
+270 silly install resolved     directories: {},
+270 silly install resolved     readme: 'ERROR: No README data found!' },
+270 silly install resolved   { name: 'bindings',
+270 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+270 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+270 silly install resolved     version: '1.2.1',
+270 silly install resolved     author:
+270 silly install resolved      { name: 'Nathan Rajlich',
+270 silly install resolved        email: 'nathan@tootallnate.net',
+270 silly install resolved        url: 'http://tootallnate.net' },
+270 silly install resolved     repository:
+270 silly install resolved      { type: 'git',
+270 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+270 silly install resolved     main: './bindings.js',
+270 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+270 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+270 silly install resolved     license: 'MIT',
+270 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+270 silly install resolved     _id: 'bindings@1.2.1',
+270 silly install resolved     scripts: {},
+270 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+270 silly install resolved     _from: 'bindings@>=1.2.1 <2.0.0',
+270 silly install resolved     _npmVersion: '1.4.14',
+270 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+270 silly install resolved     maintainers: [ [Object], [Object] ],
+270 silly install resolved     dist:
+270 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+270 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+270 silly install resolved     directories: {},
+270 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+270 silly install resolved     readme: 'ERROR: No README data found!' } ]
+271 info install nan@2.2.0 into c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+272 info install bindings@1.2.1 into c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+273 info installOne nan@2.2.0
+274 verbose installOne of nan to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak not in flight; installing
+275 info installOne bindings@1.2.1
+276 verbose installOne of bindings to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak not in flight; installing
+277 verbose lock using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\nan-e8f75d00687a7089.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+278 verbose lock using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\bindings-b4a30048aabdc5a7.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+279 silly install write writing nan 2.2.0 to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+280 silly install write writing bindings 1.2.1 to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+281 verbose unbuild node_modules\weak\node_modules\nan
+282 verbose unbuild node_modules\weak\node_modules\bindings
+283 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan is being purged from base c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+284 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+285 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings is being purged from base c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+286 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+287 verbose tar unpack C:\Users\Cohen\AppData\Roaming\npm-cache\nan\2.2.0\package.tgz
+288 verbose tar unpacking to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+289 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan is being purged
+290 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+291 verbose tar unpack C:\Users\Cohen\AppData\Roaming\npm-cache\bindings\1.2.1\package.tgz
+292 verbose tar unpacking to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+293 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings is being purged
+294 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+295 silly gunzTarPerm modes [ '777', '666' ]
+296 silly gunzTarPerm modes [ '777', '666' ]
+297 silly gunzTarPerm extractEntry package.json
+298 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+299 silly gunzTarPerm extractEntry package.json
+300 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+301 silly gunzTarPerm extractEntry README.md
+302 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+303 silly gunzTarPerm extractEntry include_dirs.js
+304 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 438 ]
+305 silly gunzTarPerm extractEntry README.md
+306 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+307 silly gunzTarPerm extractEntry bindings.js
+308 silly gunzTarPerm modified mode [ 'bindings.js', 420, 438 ]
+309 silly gunzTarPerm extractEntry nan_converters.h
+310 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 438 ]
+311 silly gunzTarPerm extractEntry LICENSE.md
+312 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+313 silly gunzTarPerm extractEntry .dntrc
+314 silly gunzTarPerm modified mode [ '.dntrc', 436, 438 ]
+315 verbose write writing to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings\package.json
+316 info preinstall bindings@1.2.1
+317 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings\package.json
+318 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings\package.json
+319 silly install resolved []
+320 verbose about to build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+321 info build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+322 info linkStuff bindings@1.2.1
+323 silly linkStuff bindings@1.2.1 has c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules as its parent node_modules
+324 verbose linkBins bindings@1.2.1
+325 verbose linkMans bindings@1.2.1
+326 verbose rebuildBundles bindings@1.2.1
+327 info install bindings@1.2.1
+328 info postinstall bindings@1.2.1
+329 verbose unlock done using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\bindings-b4a30048aabdc5a7.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\bindings
+330 silly gunzTarPerm extractEntry appveyor.yml
+331 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 438 ]
+332 silly gunzTarPerm extractEntry doc/new.md
+333 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 438 ]
+334 silly gunzTarPerm extractEntry doc/.build.sh
+335 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 511 ]
+336 silly gunzTarPerm extractEntry doc/buffers.md
+337 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 438 ]
+338 silly gunzTarPerm extractEntry doc/callback.md
+339 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 438 ]
+340 silly gunzTarPerm extractEntry doc/converters.md
+341 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 438 ]
+342 silly gunzTarPerm extractEntry doc/errors.md
+343 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 438 ]
+344 silly gunzTarPerm extractEntry doc/maybe_types.md
+345 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 438 ]
+346 silly gunzTarPerm extractEntry doc/methods.md
+347 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 438 ]
+348 silly gunzTarPerm extractEntry doc/asyncworker.md
+349 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 438 ]
+350 silly gunzTarPerm extractEntry doc/node_misc.md
+351 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 438 ]
+352 silly gunzTarPerm extractEntry doc/object_wrappers.md
+353 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 438 ]
+354 silly gunzTarPerm extractEntry doc/persistent.md
+355 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 438 ]
+356 silly gunzTarPerm extractEntry doc/scopes.md
+357 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 438 ]
+358 silly gunzTarPerm extractEntry doc/script.md
+359 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 438 ]
+360 silly gunzTarPerm extractEntry doc/string_bytes.md
+361 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 438 ]
+362 silly gunzTarPerm extractEntry doc/v8_internals.md
+363 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 438 ]
+364 silly gunzTarPerm extractEntry doc/v8_misc.md
+365 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 438 ]
+366 silly gunzTarPerm extractEntry nan.h
+367 silly gunzTarPerm modified mode [ 'nan.h', 436, 438 ]
+368 silly gunzTarPerm extractEntry nan_callbacks.h
+369 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 438 ]
+370 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+371 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 438 ]
+372 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+373 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 438 ]
+374 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+375 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 438 ]
+376 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+377 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 438 ]
+378 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+379 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 438 ]
+380 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+381 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 438 ]
+382 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+383 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 438 ]
+384 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+385 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 438 ]
+386 silly gunzTarPerm extractEntry nan_new.h
+387 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 438 ]
+388 silly gunzTarPerm extractEntry nan_object_wrap.h
+389 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 438 ]
+390 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+391 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 438 ]
+392 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+393 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 438 ]
+394 silly gunzTarPerm extractEntry nan_string_bytes.h
+395 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 438 ]
+396 silly gunzTarPerm extractEntry nan_typedarray_contents.h
+397 silly gunzTarPerm modified mode [ 'nan_typedarray_contents.h', 436, 438 ]
+398 silly gunzTarPerm extractEntry nan_weak.h
+399 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 438 ]
+400 silly gunzTarPerm extractEntry CHANGELOG.md
+401 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+402 silly gunzTarPerm extractEntry tools/package.json
+403 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 438 ]
+404 silly gunzTarPerm extractEntry tools/README.md
+405 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 438 ]
+406 silly gunzTarPerm extractEntry tools/1to2.js
+407 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 511 ]
+408 verbose write writing to c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan\package.json
+409 info preinstall nan@2.2.0
+410 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan\package.json
+411 verbose readDependencies loading dependencies from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan\package.json
+412 silly install resolved []
+413 verbose about to build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+414 info build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+415 info linkStuff nan@2.2.0
+416 silly linkStuff nan@2.2.0 has c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules as its parent node_modules
+417 verbose linkBins nan@2.2.0
+418 verbose linkMans nan@2.2.0
+419 verbose rebuildBundles nan@2.2.0
+420 info install nan@2.2.0
+421 info postinstall nan@2.2.0
+422 verbose unlock done using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\nan-e8f75d00687a7089.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak\node_modules\nan
+423 verbose about to build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+424 info build c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+425 info linkStuff weak@1.0.1
+426 silly linkStuff weak@1.0.1 has c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules as its parent node_modules
+427 verbose linkBins weak@1.0.1
+428 verbose linkMans weak@1.0.1
+429 verbose rebuildBundles weak@1.0.1
+430 verbose rebuildBundles [ 'bindings', 'nan' ]
+431 info install weak@1.0.1
+432 verbose unsafe-perm in lifecycle true
+433 info weak@1.0.1 Failed to exec install script
+434 verbose unlock done using C:\Users\Cohen\AppData\Roaming\npm-cache\_locks\weak-6400020d7f34ad3c.lock for c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+435 verbose stack Error: weak@1.0.1 install: `node-gyp rebuild`
+435 verbose stack Exit status 1
+435 verbose stack     at EventEmitter.<anonymous> (c:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\lifecycle.js:214:16)
+435 verbose stack     at emitTwo (events.js:87:13)
+435 verbose stack     at EventEmitter.emit (events.js:172:7)
+435 verbose stack     at ChildProcess.<anonymous> (c:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+435 verbose stack     at emitTwo (events.js:87:13)
+435 verbose stack     at ChildProcess.emit (events.js:172:7)
+435 verbose stack     at maybeClose (internal/child_process.js:821:16)
+435 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+436 verbose pkgid weak@1.0.1
+437 verbose cwd c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+438 error Windows_NT 10.0.10240
+439 error argv "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+440 error node v4.3.2
+441 error npm  v2.14.12
+442 error code ELIFECYCLE
+443 error weak@1.0.1 install: `node-gyp rebuild`
+443 error Exit status 1
+444 error Failed at the weak@1.0.1 install script 'node-gyp rebuild'.
+444 error This is most likely a problem with the weak package,
+444 error not with npm itself.
+444 error Tell the author that this fails on your system:
+444 error     node-gyp rebuild
+444 error You can get their info via:
+444 error     npm owner ls weak
+444 error There is likely additional logging output above.
+445 verbose exit [ 1, true ]
+446 verbose unbuild node_modules\weak
+447 info preuninstall weak@1.0.1
+448 info uninstall weak@1.0.1
+449 verbose unbuild rmStuff weak@1.0.1 from c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules
+450 info postuninstall weak@1.0.1
+451 silly gentlyRm c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak is being purged from base c:\Users\Cohen\Desktop\nightmare\docker-xray-api
+452 verbose gentlyRm don't care about contents; nuking c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+453 silly vacuum-fs purging c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules\weak
+454 silly vacuum-fs quitting because other entries in c:\Users\Cohen\Desktop\nightmare\docker-xray-api\node_modules
