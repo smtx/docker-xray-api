@@ -43,7 +43,9 @@ router.post('/', function (req, res) {
 
             }).run(function (err, nightmare) {
             if (err) return console.log(err);
-
+                /* Log que muestra el HTML que se evaluará
+                console.log(nightmare);
+                */
                 var content_to_scrape = (wait !== undefined) ? nightmare : req.body.url;
 
                 if (req.body.paginate!==undefined && req.body.selector!==undefined){
