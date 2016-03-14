@@ -27,6 +27,14 @@ router.get('/', function(req, res) {
 
 router.post('/', function (req, res) {
 
+  if (req.body.xml){
+    var cheerio = require('x-ray/node_modules/cheerio');
+    cheerio.prototype.options.xmlMode = true;
+  }
+  
+  var cheerio = require('x-ray/node_modules/cheerio');
+  cheerio.prototype.options.xmlMode = true;
+
   var Xray = require('smtx-ray');
   var x = Xray();
 
@@ -73,9 +81,9 @@ router.post('/', function (req, res) {
               if (obj){
                 Object.keys(obj).forEach(function(k){
                     obj[k] = setRegex(obj[k],req.body.regex[k]);
-                });                  
+                });
               }
-            }              
+            }
           }
           res.json(obj);
         });
@@ -92,10 +100,10 @@ router.post('/', function (req, res) {
                 } else {
                     data = 0;
                 }
-              }              
+              }
               obj = data
               //callback(err,{data:data,id:selRecipe.id});
-            } 
+            }
             resultados.push({'url':url,'res':obj});
             if (resultados.length >= aUrls.length){
               res.json(resultados);
