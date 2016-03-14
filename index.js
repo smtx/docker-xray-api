@@ -27,16 +27,22 @@ router.get('/', function(req, res) {
 
 router.post('/', function (req, res) {
 
+  var Xray = require('smtx-ray');
+
+  // activate xray with phantom if we need to scrape ajax content.
+  if (req.body.wait){
+    var phantom = require('x-ray-phantom');
+    var x = Xray()
+      .driver(phantom());
+  } else {
+    var x = Xray();
+  }
+
+  // if xml flag exists, switch cheerio to admit XML special elements CDATA, etc.
   if (req.body.xml){
-    var cheerio = require('x-ray/node_modules/cheerio');
+    var cheerio = require('cheerio');
     cheerio.prototype.options.xmlMode = true;
   }
-  
-  var cheerio = require('x-ray/node_modules/cheerio');
-  cheerio.prototype.options.xmlMode = true;
-
-  var Xray = require('smtx-ray');
-  var x = Xray();
 
   var js = req.body.recipe;
 

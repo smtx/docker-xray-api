@@ -1,12 +1,13 @@
 {
-  "name" : "xray-api",
-  "version" : "0.0.1",
-  "dependencies" : {
-    "express" : "4",
-    "weak" : "latest",
-    "smtx-ray" : "latest",
+  "name": "xray-api",
+  "version": "0.0.1",
+  "dependencies": {
     "body-parser": "latest",
+    "express": "4",
     "method-override": "latest",
-    "nightmare": "latest"
+    "nightmare": "latest",
+    "smtx-ray": "latest",
+    "weak": "latest",
+    "x-ray-phantom": "^1.0.1"
   }
 }
