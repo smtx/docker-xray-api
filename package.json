@@ -5,9 +5,8 @@
     "body-parser": "latest",
     "express": "4",
     "method-override": "latest",
-    "nightmare": "latest",
     "smtx-ray": "latest",
-    "weak": "latest",
-    "x-ray-phantom": "^1.0.1"
+    "vo": "^3.0.5",
+    "weak": "latest"
   }
 }
