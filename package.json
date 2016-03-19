@@ -5,8 +5,9 @@
     "body-parser": "latest",
     "express": "4",
     "method-override": "latest",
-    "smtx-ray": "latest",
+    "superagent-charset": "^1.0.0",
     "vo": "^3.0.5",
-    "weak": "latest"
+    "weak": "latest",
+    "x-ray": "latest"
   }
 }
