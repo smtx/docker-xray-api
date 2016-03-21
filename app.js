@@ -42,11 +42,11 @@ router.post('/', function (req, res) {
         cheerio.prototype.options.xmlMode = false;
     }
     
-    if (req.body.wait){
+    if (req.body.wait && req.body.nightmare){
         var request = require("request");
 
         var options = { method: 'POST',
-        url: 'http://162.243.230.128:8889/source',
+        url: req.body.nightmare,
         headers: 
         {   'cache-control': 'no-cache',
             'content-type': 'application/json' },
