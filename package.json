@@ -2,12 +2,11 @@
   "name": "xray-api",
   "version": "0.0.1",
   "dependencies": {
-    "body-parser": "latest",
-    "express": "4",
-    "method-override": "latest",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "request": "^2.69.0",
     "superagent-charset": "^1.0.0",
-    "vo": "^3.0.5",
-    "weak": "latest",
-    "x-ray": "latest"
+    "x-ray": "^2.0.3",
+    "x-ray-phantom": "^1.0.1"
   }
 }

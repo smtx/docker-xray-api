@@ -3,30 +3,23 @@ if (!Array.prototype.last){
         return this[this.length - 1];
     };
 };
+    // 
+// ,
+//     methodOverride = require("method-override")
 
 var express = require("express"),
-    app = express(),
     bodyParser  = require("body-parser"),
-    methodOverride = require("method-override");
+    app = express();
+
+var cheerio = require('cheerio');
+var Xray = require('x-ray');
+var xraydriver = require('./x-ray-driver');
+var x = Xray().driver(xraydriver('utf-8'));
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(methodOverride());
-
-
-var vo = require('vo');
-var url;
-function *process(){
-    // TODO: try catch error handling
-    var Nightmare = require('nightmare');
-    var nightmare = Nightmare({show:true});
-    var d = yield nightmare.goto(url)
-        .evaluate(function(){
-            return document.querySelectorAll('*')[0].innerHTML;
-        });
-    yield nightmare.end();
-    return d;
-}
+// app.use(methodOverride());
 
 var router = express.Router();
 
@@ -41,34 +34,43 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function (req, res) {
-  // get data with nightmare if we need to scrape ajax content.
-  if (req.body.wait){
-      vo(process)(function(err,result){
-          //TODO: error handling
-          url = req.body.goto;
-          process_data(result);
-      });
-  } else {
-      process_data(req.body.url);
-  }
+    
+    // if xml flag exists, switch cheerio to admit XML special elements CDATA, etc.
+    if (req.body.xml){
+        cheerio.prototype.options.xmlMode = true;
+    } else {
+        cheerio.prototype.options.xmlMode = false;
+    }
+    
+    if (req.body.wait){
+        var request = require("request");
+
+        var options = { method: 'POST',
+        url: 'http://162.243.230.128:8889/source',
+        headers: 
+        {   'cache-control': 'no-cache',
+            'content-type': 'application/json' },
+        body: { url: req.body.url },
+        json: true };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+
+            process_data(body);
+        });        
+    } else {
+         if (req.body.charset){
+            x.driver(xraydriver(req.body.charset));
+        } else {
+            x.driver(xraydriver('utf-8'));
+        }
+
+        process_data(req.body.url);    
+    }
 
 
   function process_data(d){
     if (d != undefined){
-        var Xray = require('x-ray');
-        if (req.body.charset){
-            var request = require('./x-ray-driver');
-            var x = Xray().driver(request(req.body.charset));            
-        } else {
-            var x = Xray();            
-        }
-
-        // if xml flag exists, switch cheerio to admit XML special elements CDATA, etc.
-        if (req.body.xml){
-            var cheerio = require('cheerio');
-            cheerio.prototype.options.xmlMode = true;
-        }
-
         var js = req.body.recipe;
 
         if (req.body.paginate!==undefined && req.body.selector!==undefined){
