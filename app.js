@@ -107,15 +107,25 @@ router.post('/', function (req, res) {
             if (d.substring(0,2)=='//') d = 'http:'+d;
             var j = x(d, js)(function(err, obj) {
                 if (req.body.regex){
-                if (typeof obj == 'string'){
-                    obj = setRegex(obj,req.body.regex);
-                } else {
-                    if (obj){
-                        Object.keys(obj).forEach(function(k){
-                            obj[k] = setRegex(obj[k],req.body.regex[k]);
-                        });
+                    if (typeof obj == 'string'){
+                        obj = setRegex(obj,req.body.regex);
+                    } else {
+                        if (obj){
+                            Object.keys(obj).forEach(function(k){
+                                if (typeof obj[k] == 'string'){
+                                    obj[k] = setRegex(obj[k],req.body.regex[k]);                            
+                                } else {
+                                    Object.keys(obj[k]).forEach(function(n){
+                                        if( req.body.regex[k+'.'+n] ){
+                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k+'.'+n]);                                                                                    
+                                        } else {
+                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k]);                                        
+                                        }
+                                    });
+                                }
+                            });
+                        }
                     }
-                }
                 }
                 res.json(obj);
             });
@@ -138,7 +148,8 @@ server.timeout = 600000;
 
 function setRegex(obj,regex){
     if (!regex) return obj;
-    var data = obj.replace(/["|.]/g,'');
+    // var data = obj.replace(/["|.]/g,'');
+    var data = obj;
     if (arrMatches = data.match(regex)){
         data = arrMatches[1] || arrMatches[0];
     } else {
