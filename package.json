@@ -8,5 +8,9 @@
     "superagent-charset": "^1.0.0",
     "x-ray": "^2.0.3",
     "x-ray-phantom": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.3.0"
   }
 }

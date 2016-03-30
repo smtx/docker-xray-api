@@ -1,0 +1,12 @@
+{
+    "containers": [
+        {
+            "prettyName": "Node 4.2.1",
+            "image": "dockunit/prebuilt-images:nodejs-mocha-jasmine-4.2.1",
+            "beforeScripts": [
+                "npm install"
+            ],
+            "testCommand": "mocha"
+        }
+    ]
+}
