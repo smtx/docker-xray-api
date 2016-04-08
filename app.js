@@ -41,7 +41,7 @@ router.post('/', function (req, res) {
     } else {
         cheerio.prototype.options.xmlMode = false;
     }
-    
+    console.log(req.body);
     if (req.body.wait && req.body.nightmare){
         var request = require("request");
 
