@@ -116,8 +116,8 @@ router.post('/', function (req, res) {
                                     obj[k] = setRegex(obj[k],req.body.regex[k]);                            
                                 } else {
                                     Object.keys(obj[k]).forEach(function(n){
-                                        if( req.body.regex[k+'.'+n] ){
-                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k+'.'+n]);                                                                                    
+                                        if( req.body.regex[k+'_'+n] ){
+                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k+'_'+n]);                                                                                    
                                         } else {
                                             obj[k][n] = setRegex(obj[k][n],req.body.regex[k]);                                        
                                         }
