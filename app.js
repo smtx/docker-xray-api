@@ -16,6 +16,11 @@ var Xray = require('x-ray');
 var xraydriver = require('./x-ray-driver');
 var x = Xray().driver(xraydriver('utf-8'));
 
+var pageNum;
+var pagePath;
+var newUrl;
+var enhancedParam;
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -41,17 +46,55 @@ router.post('/', function (req, res) {
     } else {
         cheerio.prototype.options.xmlMode = false;
     }
-    console.log(req.body);
+
+    newUrl = req.body.url;
+    pageNum = (req.body.pageNum) ? req.body.pageNum : null;
+    switch (true) {
+        case (newUrl.indexOf("rakuten.com") > -1):
+            pagePath = "&page=";
+            break;
+        case newUrl.indexOf("rakuten.co.uk") > -1:
+            enhancedParam = "?h3";
+            newUrl += enhancedParam;
+            pagePath = "&p="; // h=3 param to see 60 elements per page
+
+            break;
+        case newUrl.indexOf("rakuten.co.jp") > -1:
+            pagePath = "&p=";
+            break;
+        case newUrl.indexOf("11st.co.kr") > -1:
+            pagePath = "&pageNum=";
+            newUrl = newUrl.replace("pageSize=20", "pageSize=100");
+            break;
+        case newUrl.indexOf("lazada") > -1:
+            enhancedParam = "&itemperpage=120"; //itemperpage=120 param to see 120 elements per page
+            newUrl += enhancedParam;
+            pagePath = "&page="; 
+            break;
+        case newUrl.indexOf("yahoo") > -1:
+            enhancedParam = "&n=100";
+            newUrl += enhancedParam;
+            pagePath = "&b=" + pageNum + "01" + "&xargs";
+            break;
+        case newUrl.indexOf("aliexpress") > -1:
+            pagePath = "&page=" + pageNum;
+        default:
+            console.log("Entro a default");
+    }
+    if(enhancedParam)
+        newUrl += enhancedParam;
+    if(pagePath && pageNum)
+        newUrl += (pagePath + pageNum);
     if (req.body.wait && req.body.nightmare){
         var request = require("request");
-
-        var options = { method: 'POST',
-        url: req.body.nightmare,
-        headers: 
-        {   'cache-control': 'no-cache',
-            'content-type': 'application/json' },
-        body: { url: req.body.url },
-        json: true };
+        var options =  { method: 'POST',
+            url: req.body.nightmare,
+            headers:
+            {   'cache-control': 'no-cache',
+                'content-type': 'application/json' },
+            body: { url: newUrl,
+                    pageNum: pageNum ? pageNum : null},
+            json: true };
 
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
@@ -65,7 +108,7 @@ router.post('/', function (req, res) {
             x.driver(xraydriver('utf-8'));
         }
 
-        process_data(req.body.url);    
+        process_data(newUrl);
     }
 
 
@@ -135,7 +178,7 @@ router.post('/', function (req, res) {
     }      
   }
 
-})
+});
 
 
 app.use(router);
