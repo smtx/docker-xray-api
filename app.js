@@ -15,7 +15,13 @@ var cheerio = require('cheerio');
 var Xray = require('x-ray');
 var xraydriver = require('./x-ray-driver');
 var x = Xray().driver(xraydriver('utf-8'));
-var Slack = require('node-slack');
+var SlackBot = require('slackbots');
+var bot = new SlackBot({
+    token: 'xoxb-28926717638-y1wHkqQTFjZvsvsEfAyziLdi',
+    name: 'Recipes Bot'
+});
+// hasta acá
+
 
 
 var pageNum;
@@ -49,9 +55,10 @@ router.post('/', function (req, res) {
         cheerio.prototype.options.xmlMode = false;
     }
     var slack;
-    if(req.body.webhook_url)
-        slack = new Slack(req.body.webhook_url);
+    if(req.body.bot_token)
+        slack = new Slack(req.body.bot_token);
     newUrl = req.body.url;
+
     pageNum = (req.body.pageNum) ? req.body.pageNum : null;
     switch (true) {
         case (newUrl.indexOf("rakuten.com") > -1):
@@ -114,9 +121,10 @@ router.post('/', function (req, res) {
         process_data(newUrl);
     }
 
-    const MAX_ERROR_COUNT = 5;
-    const MAX_ERROR_COUNT_FOR_ARTICLE = 1;
+
   function process_data(d){
+      const MAX_ERROR_COUNT = 5;
+      const MAX_ERROR_COUNT_FOR_ARTICLE = 1;
     if (d != undefined){
         var js = req.body.recipe;
         var errorsInKeys = JSON.parse(JSON.stringify(req.body.recipe));
@@ -143,12 +151,10 @@ router.post('/', function (req, res) {
                         if ( data ){
                             res.json({data:data,next:next});
                             var b;
-                            var string = "Marketplace: " + req.body.url;
                             for(var a in data){
                                 for(var c = 0; c < keysInRecipe.length; c++){
                                     var count = 0;
-
-                                    if(data[a] != 'next'){
+                                    if(a != 'last'){
                                         if(!data[a].hasOwnProperty(keysInRecipe[c]))
                                         {
                                             count++;
@@ -156,61 +162,89 @@ router.post('/', function (req, res) {
                                             if(errorsInKeys[keysInRecipe[c]] >= MAX_ERROR_COUNT)
                                             {
                                                 b = true;
-                                                var prev_string = "\nPropiedad: " + keysInRecipe[c] +
-                                                    "\nCantidad de errores: " + (parseInt(errorsInKeys[keysInRecipe[c]])-1);
-                                                if(string.indexOf(prev_string)> -1)
-                                                    string = string.replace(prev_string, "");
-                                                string += "\nPropiedad: " + keysInRecipe[c] +
-                                                    "\nCantidad de errores: " + errorsInKeys[keysInRecipe[c]];
                                             }
 
                                         }
                                     }
                                 }
                             }
-                            if(slack && b)
-                                slack.send({
-                                    text: string + ' <@eliseoci>',
-                                    channel: '#pulpou-notifications',
-                                    username: 'Recipes Bot'
+                            if(bot && b)
+                            {
+                                var fields = [];
+                                for (var property in errorsInKeys) {
+                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT) {
+                                        var field = {};
+                                        field.value = 'Errores: ' + errorsInKeys[property];
+                                        field.title = 'Propiedad: ' + property;
+                                        fields.push(field);
+                                    }
+                                }
+                                bot.postMessageToGroup('pulpou-notifications', "<@eliseoci>", {
+                                    "attachments": [
+                                        {
+                                            "fallback": "Info no capturada en receta.",
+                                            "color": 'danger',
+                                            "pretext":"Info no capturada en recipe LS",
+                                            "title": "Marketplace: " + req.body.url,
+                                            "text": "",
+                                            "fields": fields,
+                                            "mrkdwn_in": "fields"
+                                        }
+                                    ]
+                                },function (data) {
+                                    if(data.error) console.log(data.error);
                                 });
+                            }
                         }
             });
             var j = x(d, req.body.selector, [js])
                     .paginate(req.body.paginate).limit(parseInt(limit))(function(err, obj) {
+                        if(err) throw err;
                         if ( next ){
                             res.json({data:obj,next:next});
                             var b;
-                            var string = "Marketplace: " + req.body.url;
                             for(var a in obj){
                                 for(var c = 0; c < keysInRecipe.length; c++){
                                     var count = 0;
-                                    if(obj[a] != 'next'){
+                                    if(a != 'last'){
                                         if(!obj[a].hasOwnProperty(keysInRecipe[c]))
                                         {
                                             count++;
                                             errorsInKeys[keysInRecipe[c]] += count;
-                                            if(errorsInKeys[keysInRecipe[c]] >= MAX_ERROR_COUNT)
-                                            {
+                                            if(errorsInKeys[keysInRecipe[c]] >= MAX_ERROR_COUNT){
                                                 b = true;
-                                                var prev_string = "\nPropiedad: " + keysInRecipe[c] +
-                                                    "\nCantidad de errores: " + (parseInt(errorsInKeys[keysInRecipe[c]])-1);
-                                                if(string.indexOf(prev_string)> -1)
-                                                    string = string.replace(prev_string, "");
-                                                string += "\nPropiedad: " + keysInRecipe[c] +
-                                                    "\nCantidad de errores: " + errorsInKeys[keysInRecipe[c]];
                                             }
-
                                         }
                                     }
                                 }
                             }
-                            if(slack && b)
-                                slack.send({
-                                    text: string + ' <@eliseoci>',
-                                    channel: '#pulpou-notifications',
-                                    username: 'Recipes Bot'
+                            if(bot && b)
+                            {
+                                var fields = [];
+                                for (var property in errorsInKeys) {
+                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT) {
+                                        var field = {};
+                                        field.value = 'Errores: ' + errorsInKeys[property];
+                                        field.title = 'Propiedad: ' + property;
+                                        fields.push(field);
+                                    }
+                                }
+                                bot.postMessageToGroup('pulpou-notifications', "<@eliseoci>", {
+                                    "attachments": [
+                                        {
+                                            "fallback": "Info no capturada en receta.",
+                                            "color": 'danger',
+                                            "pretext":"Info no capturada en recipe LS",
+                                            "title": "Marketplace: " + req.body.url,
+                                            "text": "",
+                                            "fields": fields,
+                                            "mrkdwn_in": "fields"
+                                        }
+                                    ]
+                                },function (data) {
+                                    if(data.error) console.log(data.error);
                                 });
+                            }
                         } else {
                         data = obj;
                         }
@@ -227,13 +261,13 @@ router.post('/', function (req, res) {
                         if (obj){
                             Object.keys(obj).forEach(function(k){
                                 if (typeof obj[k] == 'string'){
-                                    obj[k] = setRegex(obj[k],req.body.regex[k]);                            
+                                    obj[k] = setRegex(obj[k],req.body.regex[k]);
                                 } else {
                                     Object.keys(obj[k]).forEach(function(n){
                                         if( req.body.regex[k+'_'+n] ){
-                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k+'_'+n]);                                                                                    
+                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k+'_'+n]);
                                         } else {
-                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k]);                                        
+                                            obj[k][n] = setRegex(obj[k][n],req.body.regex[k]);
                                         }
                                     });
                                 }
@@ -241,36 +275,46 @@ router.post('/', function (req, res) {
                         }
                     }
                 }
-                var string = "Article Recipe "+"\nMarketplace: " + req.body.url;
                 for(var c = 0; c < keysInRecipe.length; c++){
                     var count = 0;
                     var b;
-                    if(!obj.hasOwnProperty(keysInRecipe[c]))
-                    {
+                    if(!obj.hasOwnProperty(keysInRecipe[c])) {
                         count++;
                         errorsInKeys[keysInRecipe[c]] += count;
                         if(errorsInKeys[keysInRecipe[c]] >= MAX_ERROR_COUNT_FOR_ARTICLE)
                         {
                             b = true;
-                            var prev_string = "\nPropiedad: " + keysInRecipe[c] +
-                                "\nCantidad de errores: " + (parseInt(errorsInKeys[keysInRecipe[c]])-1);
-                            if(string.indexOf(prev_string)> -1){
-                                string = string.replace(prev_string, "");
-                            }
-                            string += "\nPropiedad: " + keysInRecipe[c] +
-                                "\nCantidad de errores: " + errorsInKeys[keysInRecipe[c]];
-                            console.log("\nPropiedad: " + keysInRecipe[c] +
-                                "\nCantidad de errores: " + errorsInKeys[keysInRecipe[c]]);
                         }
                     }
                 }
                 res.json(obj);
-                if(slack && b)
-                    slack.send({
-                        text: string + ' <@eliseoci>',
-                        channel: '@eliseoci',
-                        username: 'Recipes Bot'
+                if(bot && b){
+                    var fields = [];
+                    for (var property in errorsInKeys) {
+                        if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT_FOR_ARTICLE) {
+                            var field = {};
+                            field.value = 'Errores: ' + errorsInKeys[property];
+                            field.title = 'Propiedad: ' + property;
+                            fields.push(field);
+                        }
+                    }
+                    bot.postMessageToGroup('pulpou-notifications', "<@eliseoci>", {
+                        "attachments": [
+                            {
+                                "fallback": "Info no capturada en receta.",
+                                "color": 'danger',
+                                "pretext":"Info no capturada en recipe article",
+                                "title": "Marketplace: " + req.body.url,
+                                "text": "",
+                                "fields":fields,
+                                "mrkdwn_in": "fields"
+                            }
+                        ]
+                    },function (data) {
+                        if(data.error) console.log(data.error);
                     });
+                }
+
             });
         }        
     } else {
