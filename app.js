@@ -16,11 +16,7 @@ var Xray = require('x-ray');
 var xraydriver = require('./x-ray-driver');
 var x = Xray().driver(xraydriver('utf-8'));
 var SlackBot = require('slackbots');
-var bot = new SlackBot({
-    token: 'xoxb-28926717638-y1wHkqQTFjZvsvsEfAyziLdi',
-    name: 'Recipes Bot'
-});
-// hasta acá
+var bot;
 
 
 
@@ -54,9 +50,11 @@ router.post('/', function (req, res) {
     } else {
         cheerio.prototype.options.xmlMode = false;
     }
-    var slack;
     if(req.body.bot_token)
-        slack = new Slack(req.body.bot_token);
+        bot = new SlackBot({
+            token: req.body.bot_token,
+            name: 'Recipes Bot'
+        });
     newUrl = req.body.url;
 
     pageNum = (req.body.pageNum) ? req.body.pageNum : null;
@@ -66,9 +64,7 @@ router.post('/', function (req, res) {
             break;
         case newUrl.indexOf("rakuten.co.uk") > -1:
             enhancedParam = "?h3";
-            newUrl += enhancedParam;
             pagePath = "&p="; // h=3 param to see 60 elements per page
-
             break;
         case newUrl.indexOf("rakuten.co.jp") > -1:
             pagePath = "&p=";
@@ -79,21 +75,18 @@ router.post('/', function (req, res) {
             break;
         case newUrl.indexOf("lazada") > -1:
             enhancedParam = "&itemperpage=120"; //itemperpage=120 param to see 120 elements per page
-            newUrl += enhancedParam;
             pagePath = "&page="; 
             break;
         case newUrl.indexOf("yahoo") > -1:
             enhancedParam = "&n=100";
-            newUrl += enhancedParam;
-            pagePath = "&b=" + pageNum + "01" + "&xargs";
             break;
         case newUrl.indexOf("aliexpress") > -1:
             pagePath = "&page=" + pageNum;
         default:
     }
-    if(enhancedParam)
+    if(enhancedParam && req.body.ls)
         newUrl += enhancedParam;
-    if(pagePath && pageNum)
+    if(pagePath && pageNum && req.body.ls)
         newUrl += (pagePath + pageNum);
     if (req.body.wait && req.body.nightmare){
         var request = require("request");
@@ -172,7 +165,7 @@ router.post('/', function (req, res) {
                             {
                                 var fields = [];
                                 for (var property in errorsInKeys) {
-                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT) {
+                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] >= MAX_ERROR_COUNT) {
                                         var field = {};
                                         field.value = 'Errores: ' + errorsInKeys[property];
                                         field.title = 'Propiedad: ' + property;
@@ -222,7 +215,7 @@ router.post('/', function (req, res) {
                             {
                                 var fields = [];
                                 for (var property in errorsInKeys) {
-                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT) {
+                                    if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] >= MAX_ERROR_COUNT) {
                                         var field = {};
                                         field.value = 'Errores: ' + errorsInKeys[property];
                                         field.title = 'Propiedad: ' + property;
@@ -291,7 +284,7 @@ router.post('/', function (req, res) {
                 if(bot && b){
                     var fields = [];
                     for (var property in errorsInKeys) {
-                        if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] > MAX_ERROR_COUNT_FOR_ARTICLE) {
+                        if (errorsInKeys.hasOwnProperty(property) && errorsInKeys[property] >= MAX_ERROR_COUNT_FOR_ARTICLE) {
                             var field = {};
                             field.value = 'Errores: ' + errorsInKeys[property];
                             field.title = 'Propiedad: ' + property;
