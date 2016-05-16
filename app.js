@@ -56,39 +56,19 @@ router.post('/', function (req, res) {
             name: 'Recipes Bot'
         });
     newUrl = req.body.url;
-
+    pagePath = (req.body.pagePath) ? req.body.pagePath : null;
+    enhancedParam = (req.body.enhancedParam) ? req.body.enhancedParam : null;
     pageNum = (req.body.pageNum) ? req.body.pageNum : null;
-    switch (true) {
-        case (newUrl.indexOf("rakuten.com") > -1):
-            pagePath = "&page=";
-            break;
-        case newUrl.indexOf("rakuten.co.uk") > -1:
-            enhancedParam = "?h3";
-            pagePath = "&p="; // h=3 param to see 60 elements per page
-            break;
-        case newUrl.indexOf("rakuten.co.jp") > -1:
-            pagePath = "&p=";
-            break;
-        case newUrl.indexOf("11st.co.kr") > -1:
-            pagePath = "&pageNum=";
-            newUrl = newUrl.replace("pageSize=20", "pageSize=100");
-            break;
-        case newUrl.indexOf("lazada") > -1:
-            enhancedParam = "&itemperpage=120"; //itemperpage=120 param to see 120 elements per page
-            pagePath = "&page="; 
-            break;
-        case newUrl.indexOf("yahoo") > -1:
-            enhancedParam = "&n=100";
-            break;
-        case newUrl.indexOf("aliexpress") > -1:
-            pagePath = "&page=" + pageNum;
-        default:
+    if(req.body.replace1 && req.body.replace2){
+        var r1 = "" + req.body.replace1;
+        var r2 = "" + req.body.replace2;
+        newUrl = newUrl.replace(r1,r2);
     }
-    if(enhancedParam && req.body.ls)
+    if(enhancedParam)
         newUrl += enhancedParam;
-    if(pagePath && pageNum && req.body.ls)
+    if(pagePath && pageNum)
         newUrl += (pagePath + pageNum);
-    if (req.body.wait && req.body.nightmare){
+    if (req.body.nightmare){
         var request = require("request");
         var options =  { method: 'POST',
             url: req.body.nightmare,
@@ -96,7 +76,8 @@ router.post('/', function (req, res) {
             {   'cache-control': 'no-cache',
                 'content-type': 'application/json' },
             body: { url: newUrl,
-                    pageNum: pageNum ? pageNum : null},
+                    pageNum: pageNum ? pageNum : null,
+                    click: req.body.click ? req.body.click : null},
             json: true };
 
         request(options, function (error, response, body) {
@@ -116,7 +97,7 @@ router.post('/', function (req, res) {
 
 
   function process_data(d){
-      const MAX_ERROR_COUNT = 5;
+      const MAX_ERROR_COUNT = 50;
       const MAX_ERROR_COUNT_FOR_ARTICLE = 1;
     if (d != undefined){
         var js = req.body.recipe;
