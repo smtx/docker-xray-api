@@ -1,9 +1,13 @@
 {
   "name": "xray-api",
   "version": "0.0.1",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "node-slack": "0.0.7",
     "request": "^2.69.0",
     "superagent-charset": "^1.0.0",
     "x-ray": "^2.0.3",
